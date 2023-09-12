@@ -9,3 +9,28 @@ url <- "https://raw.githubusercontent.com/Libro-GEOFOREST/Capitulo1-Sensores/Exe
 datos <- read.csv(url)
 ## Resumen de los datos
 head(datos)
+## Representacion grafica
+plot(datos$V, datos$tita, xlab="mV",ylab=expression(theta))
+## Rango:
+vmax <- max(datos$V)
+vmin <- min(datos$V)
+## Margen
+titamax <- max(datos$tita)
+titamin <- min(datos$tita)
+titamax-titamin
+## Ajuste de la curva de calibrado
+modelo <- lm(1/tita ~ V + I(V^2) + I(V^3) ,data=datos)
+summary(modelo)
+## Extracción de los parámetros del modelo y obtencion de datos predichos
+a_param <- modelo$coefficients[[1]]
+b_param <- modelo$coefficients[[2]]
+c_param <- modelo$coefficients[[3]]
+d_param <- modelo$coefficients[[4]]
+rango=c(vmin:vmax)
+fitData <- data.frame(fit = 1/(a_param+(b_param*rango)+(c_param*(rango^2))+(d_param*(rango^3))))
+## Representación de la curva característica
+ggplot()+
+  geom_line(data = fitData, aes(x=x, y=fit))+
+  xlab("mV") + ylab(expression(theta))+
+  theme_classic()
+
