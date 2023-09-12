@@ -30,7 +30,7 @@ rango=c(vmin:vmax)
 fitData <- data.frame(fit = 1/(a_param+(b_param*rango)+(c_param*(rango^2))+(d_param*(rango^3))))
 ## Representación de la curva característica
 ggplot()+
-  geom_line(data = fitData, aes(x=x, y=fit))+
+  geom_line(data = fitData, aes(x=rango, y=fit))+
   xlab("mV") + ylab(expression(theta))+
   theme_classic()
 
