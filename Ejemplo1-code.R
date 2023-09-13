@@ -1,3 +1,6 @@
+########## GEOFOREST - Cap. 1 SENSORES / Ejemplo 1 ############################
+############ Francisco Jose Ruiz Gomez ########################################
+
 ## Ejecutar el código de las líneas 2 y 3 únicamente si no se han instalado antes las librerías.
 install.packages("tidyverse")
 install.packages("ggplot2")
