@@ -11,4 +11,4 @@ colnames(dr_df) <- c("volt", "deltatita")
 ## Representación gráfica
 plot(dr_df$volt, dr_df$deltatita, xlab="mV",ylab=expression(delta))
 ## Resolucion
-min(abs(dr_df$fit))
+min(abs(dr_df$deltatita))
