@@ -1,3 +1,6 @@
+########## GEOFOREST - Cap. 1 SENSORES / Ejemplo 2 ############################
+############ Francisco Jose Ruiz Gomez ########################################
+
 ## Cargamos las librerías y obtenemos los datos:
 library(tidyverse)
 library(ggplot2)
