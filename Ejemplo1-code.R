@@ -12,8 +12,8 @@ head(datos)
 ## Representacion grafica
 plot(datos$V, datos$tita, xlab="mV",ylab=expression(theta))
 ## Rango:
-vmax <- max(datos$V)
-vmin <- min(datos$V)
+max(datos$V)
+min(datos$V)
 ## Margen
 titamax <- max(datos$tita)
 titamin <- min(datos$tita)
@@ -26,11 +26,10 @@ a_param <- modelo$coefficients[[1]]
 b_param <- modelo$coefficients[[2]]
 c_param <- modelo$coefficients[[3]]
 d_param <- modelo$coefficients[[4]]
-rango=c(vmin:vmax)
-fitData <- data.frame(fit = 1/(a_param+(b_param*rango)+(c_param*(rango^2))+(d_param*(rango^3))))
+fitData <- tibble(x=min(datos$V):max(datos$V),fit = 1/(a_param+(b_param*x)+(c_param*(x^2))+(d_param*(x^3))))
 ## Representación de la curva característica
 ggplot()+
-  geom_line(data = fitData, aes(x=rango, y=fit))+
+  geom_line(data = fitData, aes(x=x, y=fit))+
   xlab("mV") + ylab(expression(theta))+
   theme_classic()
 
