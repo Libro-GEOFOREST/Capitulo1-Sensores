@@ -1,5 +1,5 @@
-#Antonio Cachinero Vivar#
-#UCO-ERSAF#
+########## GEOFOREST - Cap. 1 SENSORES / Ejemplo 1 ############################
+############ Antonio Cachinero Vivar ########################################
 
 rm(list=ls())
 list_pkgs <- c("readxl", "ttalkR", "prospectr", "ggplot2","lubridate","devtools","writexl","dplyr","gridExtra","caret","ggpubr","signal","scales","reshape2","knitr","rmarkdown","tidyverse")
