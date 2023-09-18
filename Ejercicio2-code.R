@@ -2,15 +2,14 @@
 #UCO-ERSAF#
 
 rm(list=ls())
-list_pkgs <- c("readxl", "ggplot2","lubridate","devtools","writexl","dplyr","gridExtra","caret","ggpubr","signal","scales","tidyverse")
+list_pkgs <- c("readxl","ggplot2","lubridate","devtools","dplyr","caret","tidyverse","ggarrange")
 new_pkgs <- list_pkgs[!(list_pkgs %in% installed.packages()[, "Package"])]
 if (length(new_pkgs) > 0) install.packages(new_pkgs)
 
 sapply(list_pkgs, require, character.only=TRUE)
 
-
 ##################
-data <- read_xlsx("C:/Users/Dell Latitude/OneDrive - Universidad de Córdoba/Dendrolatlab/Acachinero/Libro_GEOFOREST/Capitulo_I/cap_I_sensoriz_ejerc_1/ejercicio_dendrometro.xlsx")
+data <- read.csv("ejercicio_dendrometro.csv",sep=";", header = TRUE)
 
   df1 <- data.frame(data$Timestamp, data$individuo, data$incremento, data$temperatura)
   colnames(df1) <- c("Timestamp", "individuo", "incremento","temperatura")
